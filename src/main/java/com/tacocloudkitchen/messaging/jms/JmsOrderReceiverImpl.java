@@ -5,12 +5,14 @@ import com.tacocloudkitchen.dto.TacoOrder;
 import jakarta.jms.JMSException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@Profile("jms-listener")
 public class JmsOrderReceiverImpl implements OrderReceiver {
 
     private final JmsTemplate jms;

@@ -3,9 +3,11 @@ package com.tacocloudkitchen.messaging.jms.listener;
 import com.tacocloudkitchen.KitchenUI;
 import com.tacocloudkitchen.dto.TacoOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
+@Profile("jms-listener")
 @Component
 public class OrderListener {
 
