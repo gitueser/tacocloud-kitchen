@@ -19,6 +19,7 @@ spring:
       enabled: false
 
 ---
+
 spring:
   config:
     activate:
