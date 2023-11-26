@@ -6,6 +6,7 @@ import jakarta.jms.JMSException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Profile;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -21,8 +22,11 @@ public class RabbitOrderReceiver implements OrderReceiver {
 
     @Override
     public TacoOrder receiveOrder() throws JMSException {
-        TacoOrder tacoOrder = (TacoOrder) rabbit.receiveAndConvert("tacocloud.order.queue");
+        TacoOrder tacoOrder = rabbit.receiveAndConvert("tacocloud.order.queue",
+                new ParameterizedTypeReference<TacoOrder>() {
+                }
+        );
         log.info("Getting order from RabbitMQ: {}", tacoOrder);
-        return  tacoOrder;
+        return tacoOrder;
     }
 }
