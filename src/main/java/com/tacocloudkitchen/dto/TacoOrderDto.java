@@ -7,14 +7,13 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-public class TacoOrder {
-
+public class TacoOrderDto {
     private Date placedAt;
     private String deliveryName;
     private String deliveryStreet;
     private String deliveryCity;
     private String deliveryState;
     private String deliveryZip;
-
-    private List<Taco> tacos = new ArrayList<>();
+    private UserDto user;
+    private List<TacoDto> tacos = new ArrayList<>();
 }

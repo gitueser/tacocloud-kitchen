@@ -1,7 +1,7 @@
 package com.tacocloudkitchen.messaging.jms.artemis;
 
+import com.tacocloudkitchen.dto.TacoOrderDto;
 import com.tacocloudkitchen.messaging.OrderReceiver;
-import com.tacocloudkitchen.dto.TacoOrder;
 import jakarta.jms.JMSException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +23,9 @@ public class JmsOrderReceiver implements OrderReceiver {
     }
 
     @Override
-    public TacoOrder receiveOrder() throws JMSException {
-        TacoOrder tacoOrder = (TacoOrder) jms.receiveAndConvert("tacocloud.order.queue");
-        log.info("Getting order from JMS: {}", tacoOrder);
-        return  tacoOrder;
+    public TacoOrderDto receiveOrder() throws JMSException {
+        TacoOrderDto tacoOrderDto = (TacoOrderDto) jms.receiveAndConvert("tacocloud.order.queue");
+        log.info("Getting order from JMS: {}", tacoOrderDto);
+        return tacoOrderDto;
     }
 }

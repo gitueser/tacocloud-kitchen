@@ -2,13 +2,13 @@ package com.tacocloudkitchen.dto;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
-public class Taco {
-
+public class TacoDto {
     private String name;
     private Date createdAt;
-    private List<Ingredient> ingredients;
+    private List<String> ingredients = new ArrayList<>();
 }

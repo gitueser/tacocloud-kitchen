@@ -1,7 +1,7 @@
 package com.tacocloudkitchen.messaging.jms.artemis.listener;
 
 import com.tacocloudkitchen.KitchenUI;
-import com.tacocloudkitchen.dto.TacoOrder;
+import com.tacocloudkitchen.dto.TacoOrderDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jms.annotation.JmsListener;
@@ -19,7 +19,7 @@ public class OrderListener {
     }
 
     @JmsListener(destination = "tacocloud.order.queue")
-    public void receiveOrder(TacoOrder order) {
+    public void receiveOrder(TacoOrderDto order) {
         ui.displayOrder(order);
     }
 }

@@ -1,13 +1,9 @@
 package com.tacocloudkitchen.dto;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor(force = true)
-@RequiredArgsConstructor
-public class Ingredient {
+public class IngredientDto {
 
     private final String name;
     private final Type type;

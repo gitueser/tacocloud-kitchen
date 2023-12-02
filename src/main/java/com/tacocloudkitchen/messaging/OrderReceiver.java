@@ -1,9 +1,9 @@
 package com.tacocloudkitchen.messaging;
 
-import com.tacocloudkitchen.dto.TacoOrder;
+import com.tacocloudkitchen.dto.TacoOrderDto;
 import jakarta.jms.JMSException;
 
 public interface OrderReceiver {
 
-    TacoOrder receiveOrder() throws JMSException;
+    TacoOrderDto receiveOrder() throws JMSException;
 }

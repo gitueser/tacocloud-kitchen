@@ -1,6 +1,6 @@
 package com.tacocloudkitchen.messaging.rabbit;
 
-import com.tacocloudkitchen.dto.TacoOrder;
+import com.tacocloudkitchen.dto.TacoOrderDto;
 import com.tacocloudkitchen.messaging.OrderReceiver;
 import jakarta.jms.JMSException;
 import lombok.extern.slf4j.Slf4j;
@@ -21,12 +21,12 @@ public class RabbitOrderReceiver implements OrderReceiver {
     }
 
     @Override
-    public TacoOrder receiveOrder() throws JMSException {
-        TacoOrder tacoOrder = rabbit.receiveAndConvert("tacocloud.order.queue",
-                new ParameterizedTypeReference<TacoOrder>() {
+    public TacoOrderDto receiveOrder() throws JMSException {
+        TacoOrderDto tacoOrderDto = rabbit.receiveAndConvert("tacocloud.order.queue",
+                new ParameterizedTypeReference<TacoOrderDto>() {
                 }
         );
-        log.info("Getting order from RabbitMQ: {}", tacoOrder);
-        return tacoOrder;
+        log.info("Getting order from RabbitMQ: {}", tacoOrderDto);
+        return tacoOrderDto;
     }
 }
